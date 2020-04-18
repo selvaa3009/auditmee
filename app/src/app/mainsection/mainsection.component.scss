@@ -4,3 +4,12 @@
 //         font-size: 35px;
 //     }
 // }
+
+a.card {
+    text-decoration: none;
+}
+
+a.card:hover {
+    transform: scale(1.03);
+    transition-duration: 0.5s;
+}
