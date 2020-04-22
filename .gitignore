@@ -10,7 +10,6 @@ appsettings.json
 nlog.config
 web.config
 # dependencies
-node_modules
 /node_modules
 *package-lock.json
 *-lock.json
