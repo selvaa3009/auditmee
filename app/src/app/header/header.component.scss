@@ -4,8 +4,23 @@
 //     color: #000;
 // }
 
-// .nav-item {
-//     .nav-link {
-//         color: #000 !important;
-//     }
-// }
+.navbar-nav {   
+    .nav-item{
+        color: #000 !important;
+        a.nav-link {
+            color: #000 !important;
+            span {
+                color: #000 !important;
+            }
+        }
+        &.fas {
+            color: #000 !important;
+        }
+    }
+}
+a.dropdown-item {
+    &:hover {
+        background: #4e73df!important;
+        color: #fff;
+    }
+}

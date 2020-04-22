@@ -2,3 +2,12 @@ ul.sidebar {
     height: 100%;
 }
 
+#accordionSidebar {
+    position: relative;
+}
+
+.sidebartoggle {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

@@ -1,6 +1,45 @@
+.tabs-form-container {
+    position: relative;
+}
+
 .main-content {
     padding: 50px 35px;
     p {
         font-size: 35px;
     }
+}
+
+.wizard-head {
+    max-width: 500px;
+    margin: 55px auto;
+    div.progress {
+        width: 50px;
+        height: 5px;
+        cursor: pointer;
+    }
+}
+
+.wizard-footer {
+    button.pager {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 2.9px 0 0 0;
+        margin-top: 19px;
+    }
+}
+
+.pagination-badge {
+    width: 30px;
+    height: 30px;
+    margin: 19px 2px 2px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    display: inline-block;
+    padding: 0;
+    height: auto;
+    margin-right: 7px;
 }

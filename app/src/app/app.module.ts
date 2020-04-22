@@ -1,5 +1,7 @@
+import { MainModule } from './main/main.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BlankpageComponent } from './blankpage/blankpage.component';
 import { ChartsComponent } from './charts/charts.component';
 import { TablesComponent } from './tables/tables.component';
+import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +47,17 @@ import { TablesComponent } from './tables/tables.component';
     PagenotfoundComponent,
     BlankpageComponent,
     ChartsComponent,
-    TablesComponent
+    TablesComponent,
+    GeneratepdfComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MainModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
