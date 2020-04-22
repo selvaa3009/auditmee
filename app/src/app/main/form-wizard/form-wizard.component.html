@@ -1,0 +1,22 @@
+<section class="d-flex p-3 text-white wizard-head">
+    <div *ngFor="let count of wizardCount" (click)="changeTab(count, 'head')" [className]="activeTab === count ? 'p-2 bg-primary flex-fill cursor text-center' : 'p-2 bg-secondary flex-fill cursor text-center'">
+        Form - {{count}}
+    </div>
+</section>
+<section class="wizard-body d-flex flex-column text-center">
+    <div class="p-3 bg-light" *ngIf="'Form - 1' === 'Form - '+activeTab">Form 1</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 2' === 'Form - '+activeTab">Form 2</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 3' === 'Form - '+activeTab">Form 3</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 4' === 'Form - '+activeTab">Form 4</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 5' === 'Form - '+activeTab">Form 5</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 6' === 'Form - '+activeTab">Form 6</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 7' === 'Form - '+activeTab">Form 7</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 8' === 'Form - '+activeTab">Form 8</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 9' === 'Form - '+activeTab">Form 9</div>
+    <div class="p-3 bg-light" *ngIf="'Form - 10' === 'Form - '+activeTab">Form 10</div>
+</section>
+<section class="wizard-footer p-3 mb-3 d-flex justify-content-end">
+    <button type="button" class="btn btn-dark m-3" *ngIf="activeTab > 1" (click)="changeTab(activeTab,'back')">Back</button>
+    <button type="button" class="btn btn-primary m-3" *ngIf="activeTab !== wizardCount.length" (click)="changeTab(activeTab,'next')">Next</button>
+    <button type="button" class="btn btn-success m-3" *ngIf="activeTab === wizardCount.length" (click)="changeTab(activeTab,'submit')">Submit</button>
+</section>

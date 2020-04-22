@@ -14,9 +14,11 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { OthersComponent } from './others/others.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TablesComponent } from './tables/tables.component';
+import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
 
 
 const routes: Routes = [
+  // { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: '', component: MainsectionComponent },
   { path: 'analytics', component: AnalyticsComponent },
   { path: 'tabs', component: TabsComponent },
@@ -32,7 +34,8 @@ const routes: Routes = [
   { path: 'tables', component: TablesComponent },
   { path: 'others', component: OthersComponent },
   { path: 'tabs', component: TabsComponent },
-  { path: 'blankpage', component: TabsComponent }
+  { path: 'blankpage', component: TabsComponent },
+  { path: 'generatepdf', component: GeneratepdfComponent }
 ];
 
 @NgModule({
