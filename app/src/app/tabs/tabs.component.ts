@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { DiagnosticsData } from './diagnostics.model';
+import { FormDataService } from '../form-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -37,8 +39,122 @@ export class TabsComponent implements OnInit {
       this.isdlVisible = false;
     }
   }
-  constructor() {
-    this.wizardCount = Array.from(Array(10), (x, i) => i + 1);
+  f2pan(event: any) {
+    if (event.target.checked === true) {
+      this.isPanVisible = true;
+    } else {
+      this.isPanVisible = false;
+    }
+  }
+
+  f2aadhar(event: any) {
+    if (event.target.checked === true) {
+      this.isAadharVisible = true;
+    } else {
+      this.isAadharVisible = false;
+    }
+  }
+
+  f2dl(event: any) {
+    if (event.target.checked === true) {
+      this.isdlVisible = true;
+    } else {
+      this.isdlVisible = false;
+    }
+  }
+  f4pan(event: any) {
+    if (event.target.checked === true) {
+      this.isPanVisible = true;
+    } else {
+      this.isPanVisible = false;
+    }
+  }
+
+  f4aadhar(event: any) {
+    if (event.target.checked === true) {
+      this.isAadharVisible = true;
+    } else {
+      this.isAadharVisible = false;
+    }
+  }
+
+  f4dl(event: any) {
+    if (event.target.checked === true) {
+      this.isdlVisible = true;
+    } else {
+      this.isdlVisible = false;
+    }
+  }
+  f6pan(event: any) {
+    if (event.target.checked === true) {
+      this.isPanVisible = true;
+    } else {
+      this.isPanVisible = false;
+    }
+  }
+
+  f6aadhar(event: any) {
+    if (event.target.checked === true) {
+      this.isAadharVisible = true;
+    } else {
+      this.isAadharVisible = false;
+    }
+  }
+
+  f6dl(event: any) {
+    if (event.target.checked === true) {
+      this.isdlVisible = true;
+    } else {
+      this.isdlVisible = false;
+    }
+  }
+
+  f8pan(event: any) {
+    if (event.target.checked === true) {
+      this.isPanVisible = true;
+    } else {
+      this.isPanVisible = false;
+    }
+  }
+
+  f8aadhar(event: any) {
+    if (event.target.checked === true) {
+      this.isAadharVisible = true;
+    } else {
+      this.isAadharVisible = false;
+    }
+  }
+
+  f8dl(event: any) {
+    if (event.target.checked === true) {
+      this.isdlVisible = true;
+    } else {
+      this.isdlVisible = false;
+    }
+  }
+
+  f10pan(event: any) {
+    if (event.target.checked === true) {
+      this.isPanVisible = true;
+    } else {
+      this.isPanVisible = false;
+    }
+  }
+
+  f10aadhar(event: any) {
+    if (event.target.checked === true) {
+      this.isAadharVisible = true;
+    } else {
+      this.isAadharVisible = false;
+    }
+  }
+
+  f10dl(event: any) {
+    if (event.target.checked === true) {
+      this.isdlVisible = true;
+    } else {
+      this.isdlVisible = false;
+    }
   }
 
   ngOnInit(): void {}
@@ -66,31 +182,147 @@ export class TabsComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  model = new Hero('Selvaa', 'Kumar');
-
   submitted = false;
+  model = new DiagnosticsData(
+    'trading',
+    'MCX',
+    'Mumbai',
+    'Bangalore',
+    3,
+    'madiwala',
+    'koramangala',
+    'bangalore',
+    'bengaluru',
+    '23',
+    23,
+
+    'hari',
+    'hari@test.com',
+    true,
+    'pan',
+    'aadhar',
+    'dl',
+    'f2placebusiness',
+    '56',
+    'f2address1',
+    'f2address2',
+    'f2city',
+    'f2zip',
+
+    'Selva',
+    'kumar',
+    'dev',
+    'dev3',
+    35,
+    'madiwala',
+    'koramangala',
+    'bangalore',
+    'bengaluru',
+    '23',
+    23,
+
+    'hari',
+    'hari@test.com',
+    true,
+    'pan',
+    'aadhar',
+    '4545',
+    'f2placebusiness',
+    '56',
+    'f2address1',
+    'f2address2',
+    'f2city',
+    'f2zip',
+
+    'Selva',
+    'kumar',
+    'dev',
+    'dev3',
+    35,
+    'madiwala',
+    'koramangala',
+    'bangalore',
+    'bengaluru',
+    '23',
+    23,
+
+    'hari',
+    'hari@test.com',
+    true,
+    'pan',
+    'aadhar',
+    'dl',
+    'f2placebusiness',
+    '56',
+    'f2address1',
+    'f2address2',
+    'f2city',
+    'f2zip',
+
+    'Selva',
+    'kumar',
+    'dev',
+    'dev3',
+    35,
+    'madiwala',
+    'koramangala',
+    'bangalore',
+    'bengaluru',
+    '23',
+    23,
+
+    'hari',
+    'hari@test.com',
+    true,
+    'pan',
+    'aadhar',
+    'dl',
+    'f2placebusiness',
+    '56',
+    'f2address1',
+    'f2address2',
+    'f2city',
+    'f2zip',
+
+    'Selva',
+    'kumar',
+    'dev',
+    'dev3',
+    35,
+    'madiwala',
+    'koramangala',
+    'bangalore',
+    'bengaluru',
+    '23',
+    23,
+
+    'hari',
+    'hari@test.com',
+    true,
+    'pan',
+    'aadhar',
+    'dl',
+    'f2placebusiness',
+    '56',
+    'f2address1',
+    'f2address2',
+    'f2city',
+    'f2zip'
+  );
+
+  constructor(
+    private _userdataService: FormDataService,
+    private router: Router
+  ) {
+    this.wizardCount = Array.from(Array(10), (x, i) => i + 1);
+  }
+
+  onPopulate() {
+    this._userdataService.sharedData = this.model;
+    this.router.navigateByUrl('/generatepdf');
+  }
 
   onSubmit() {
-    this.submitted = true;
-    console.log();
+    console.log('not created');
   }
-
-  // TODO: Remove this when we're done
-  get diagnostic() {
-    return JSON.stringify(this.model);
-    console.log(JSON.stringify(this.model));
-  }
-
-  public data;
-  getjson() {
-    this.data = JSON.stringify(this.model);
-    console.log(this.data); ;
-  }
-
-  // toggleEditable(event) {
-  //   if (event.target.checked) {
-  //     this.contentEditable = true;
-  //     console.log(event.target.checked);
-  //   }
-  // }
 }
