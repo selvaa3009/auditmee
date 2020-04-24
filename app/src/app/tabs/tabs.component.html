@@ -12,856 +12,776 @@
             </h1>
             <div class="p-3 bg-light" *ngIf="'Form - 1' === 'Form - '+activeTab">
                 <!-- Form 1 -->
-                {{diagnostic}}
-                <form role="form" action="" method="" #heroForm="ngForm">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
                     <div class="form-group">
-                        <label for="fname">First name</label>
-                        <input class="form-control" id="fname" name="fname" type="text" required [(ngModel)]="model.fname" name="fname">
+                        <label for="entityName">Entity Name</label>
+                        <input class="form-control" [class.is-invalid]="entityName.invalid && entityName.touched" id="entityName"
+                            name="entityName" type="text" required [(ngModel)]="model.entityName" #entityName="ngModel">
+                        <small *ngIf="entityName.invalid && entityName.touched" class="text-danger">Entity Name is required</small>
                     </div>
                     <div class="form-group">
-                        <label for="lname">Last name</label>
-                        <input class="form-control" id="lname" name="lname" type="text" required
-                 [(ngModel)]="model.lname" name="lname">
-                    </div>
-                    <button type="button" (submit)="getjson()">Submit</button>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
+                        <label for="tradingName">Trading Name</label>
+                        <input class="form-control" [class.is-invalid]="tradingName.invalid && tradingName.touched" id="tradingName"
+                            name="tradingName" type="text" required [(ngModel)]="model.tradingName" name="tradingName"
+                            #tradingName="ngModel">
+                        <small *ngIf="tradingName.invalid && tradingName.touched" class="text-danger">Trading Name is required</small>
                     </div>
                     <div class="form-group">
                         <label for="regoffice">Registered Office</label>
-                        <input class="form-control" id="regoffice" name="regoffice" type="text">
+                        <input class="form-control" [class.is-invalid]="regOffice.invalid && regOffice.touched" id="regOffice"
+                            name="regOffice" type="text" required [(ngModel)]="model.regOffice" name="regOffice" #regOffice="ngModel">
+                        <small *ngIf="regOffice.invalid && regOffice.touched" class="text-danger">Registered Name is
+                            required</small>
                     </div>
                     <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
+                        <label for="placebusiness">Principle place of business</label>
+                        <input class="form-control" [class.is-invalid]="placebusiness.invalid && placebusiness.touched"
+                            id="placebusiness" name="placebusiness" type="text" required [(ngModel)]="model.placebusiness"
+                            name="placebusiness" #placebusiness="ngModel">
+                        <small *ngIf="placebusiness.invalid && placebusiness.touched" class="text-danger">Principle place of business is
+                            required</small>
                     </div>
                     <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
+                        <label for="abnNumber">ABN number<sup>*</sup> (Enter your unique 11 digit number)</label>
+                        <input class="form-control" [class.is-invalid]="abnNumber.invalid && abnNumber.touched" id="abnNumber"
+                            name="abnNumber" type="number" required [(ngModel)]="model.abnNumber" name="abnNumber" #abnNumber="ngModel">
+                        <small *ngIf="abnNumber.invalid && abnNumber.touched" class="text-danger">ABN number is required</small>
                     </div>
                     <!-- Grid row -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
+                                <label for="address1">Address <sup>*</sup></label>
+                                <input type="text" [class.is-invalid]="address1.invalid && address1.touched" class="form-control"
+                                    id="address1" placeholder="1234 Main St" required [(ngModel)]="model.address1" name="address1"
+                                    #address1="ngModel">
+                                <small *ngIf="address1.invalid && address1.touched" class="text-danger">Street is required</small>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
+                                <label for="address2">Address 2</label>
+                                <input type="text" [class.is-invalid]="address2.invalid && address2.touched" class="form-control"
+                                    id="address2" placeholder="Apartment, studio, or floor" required [(ngModel)]="model.address2"
+                                    name="address2" #address2="ngModel">
+                                <small *ngIf="address2.invalid && address2.touched" class="text-danger">Area is required</small>
                             </div>
                         </div>
                     </div>
-                    <!-- Grid row -->
-
                     <!-- Grid row -->
                     <div class="form-row">
                         <!-- Grid column -->
                         <div class="col-md-6">
                             <!-- Material input -->
                             <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
+                                <label for="city">City</label>
+                                <input type="text" [class.is-invalid]="city.invalid && city.touched" class="form-control" id="city"
+                                    placeholder="New York City" required [(ngModel)]="model.city" name="city" #city="ngModel">
+                                <small *ngIf="city.invalid && city.touched" class="text-danger">City is required</small>
                             </div>
                         </div>
                         <!-- Grid column -->
-
+                
                         <!-- Grid column -->
                         <div class="col-md-6">
                             <!-- Material input -->
                             <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
+                                <label for="zip">Zip</label>
+                                <input type="text" [class.is-invalid]="zip.invalid && zip.touched" class="form-control" id="zip"
+                                    placeholder="11206-1117" required [(ngModel)]="model.zip" name="zip" #zip="ngModel">
+                                <small *ngIf="zip.invalid && zip.touched" class="text-danger">Zip is required</small>
                             </div>
                         </div>
                         <!-- Grid column -->
                     </div>
                     <!-- Grid row -->
+                    <!-- Grid row -->
+                    <div class="form-group">
+                        <label for="entity">Type Of Entity</label>
+                        <select class="form-control" [class.is-invalid]="entity.invalid && entity.touched" id="entity" required
+                            [(ngModel)]="model.entity" name="entity" #entity="ngModel">
+                            <option value="">Select type of entity</option>
+                            <option value="remProvider">Remittance Provider</option>
+                            <option value="carpetShop">Carpet Shop</option>
+                            <option value="curExchange">Currency Exchange</option>
+                            <!-- <option *ngFor="let x of entity" [value]="x">{{x}}</option> -->
+                        </select>
+                        <small *ngIf="entity.invalid && entity.touched" class="text-danger">Choose atleast one type of entity</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="noofemployee">Number of personnel employed currently</label>
+                        <input class="form-control" [class.is-invalid]="noofemployee.invalid && noofemployee.touched" id="noofemployee"
+                            name="noofemployee" type="number" placeholder="ex: 23.." required [(ngModel)]="model.noofemployee"
+                            name="noofemployee" #noofemployee="ngModel">
+                        <small *ngIf="noofemployee.invalid && noofemployee.touched" class="text-danger">Number of personnel employed is
+                            required</small>
+                    </div>
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 2' === 'Form - '+activeTab">
                 <!-- Form 2 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">Validation</h3>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input class="form-control" id="name" name="nname" type="text">
+                        <label for="f2entityno">Entity number</label>
+                        <input class="form-control" [class.is-invalid]="f2entityno.invalid && f2entityno.touched" id="f2entityno"
+                            name="f2entityno" type="text" required [(ngModel)]="model.f2entityno" #f2entityno="ngModel">
+                        <small *ngIf="f2entityno.invalid && f2entityno.touched" class="text-danger">Entity number is required</small>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
+                        <label for="f2details">Details</label>
+                        <textarea class="form-control" [class.is-invalid]="f2details.invalid && f2details.touched" id="f2details"
+                            name="f2details" required [(ngModel)]="model.f2details" #f2details="ngModel"></textarea>
+                        <small *ngIf="f2details.invalid && f2details.touched" class="text-danger">Details is required</small>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Gender</label>
+                        <label for="f2date">Date</label>
+                        <input class="form-control" [class.is-invalid]="f2date.invalid && f2date.touched" id="f2date" name="f2date"
+                            type="date" required [(ngModel)]="model.f2date" #f2date="ngModel">
+                        <small *ngIf="f2date.invalid && f2date.touched" class="text-danger">Date is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f2officer">Name of Compliance Officer / Manager</label>
+                        <input class="form-control" [class.is-invalid]="f2officerfname.invalid && f2officerfname.touched"
+                            id="f2officerfname" name="f2officerfname" placeholder="First Name.." type="text" required
+                            [(ngModel)]="model.f2officerfname" #f2officerfname="ngModel">
+                        <small *ngIf="f2officerfname.invalid && f2officerfname.touched" class="text-danger">First name is
+                            required</small>
+                            <br>
+                        <input class="form-control" [class.is-invalid]="f2officerlname.invalid && f2officerlname.touched"
+                            id="f2officerlname" placeholder="Last Name.." name="f2officerlname" type="text" required
+                            [(ngModel)]="model.f2officerlname" #f2officerlname="ngModel">
+                        <small *ngIf="f2officerlname.invalid && f2officerlname.touched" class="text-danger">Last name is
+                            required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f2manager">Specific Qualification of compliance manager</label>
+                        <input class="form-control" [class.is-invalid]="f2manager.invalid && f2manager.touched" id="f2manager" name="f2manager" type="text" required [(ngModel)]="model.f2manager" #f2manager="ngModel">
+                        <small *ngIf="f2manager.invalid && f2manager.touched" class="text-danger">Specific Qualification of compliance
+                            manager is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f2uploadcopy">Upload current and signed copy of the AMLCTF compliance program</label>
+                        <input type="file" class="form-control-file" [class.is-invalid]="f2uploadcopy.invalid && f2uploadcopy.touched"
+                            id="f2uploadcopy" name="f2uploadcopy" required [(ngModel)]="model.f2uploadcopy" #f2uploadcopy="ngModel">
+                        <small *ngIf="f2uploadcopy.invalid && f2uploadcopy.touched" class="text-danger">Upload current and signed copy
+                            of the AMLCTF compliance program is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f2reviewed">Have you been audited/reviewed or asked to respond to specific concern bu AUSTRAC in the
+                            past two years?</label>
+                        <input class="form-control" type="radio" name="No" id="f2reviewedno" value="no" #f2reviewed="ngModel"
+                            [(ngModel)]="model.f2reviewed" [class.is-invalid]="f2reviewed.invalid && f2reviewed.touched" required>
+                        <label for="f2reviewedno">No</label>
+                        <br>
+                        <input class="form-control" type="radio" name="Yes, the issue in progress" id="yesprogress" value="yesprogress"
+                            #f2reviewed="ngModel" [(ngModel)]="model.f2reviewed"
+                            [class.is-invalid]="f2reviewed.invalid && f2reviewed.touched" required>
+                        <label for="yesprogress">Yes, the issue in progress</label>
+                        <br>
+                        <input class="form-control" type="radio" name="Yes, the issue is now completed" id="yescompleted" value="yescompleted"
+                            #f2reviewed="ngModel" [(ngModel)]="model.f2reviewed"
+                            [class.is-invalid]="f2reviewed.invalid && f2reviewed.touched" required>
+                        <label for="yescompleted">Yes, the issue is now completed</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="f2uploadcorrespondence">Upload all correspondence you have had in the past with AUSTRAC in this
+                            regard</label>
+                        <input type="file" class="form-control-file"
+                            [class.is-invalid]="f2uploadcorrespondence.invalid && f2uploadcorrespondence.touched"
+                            id="f2uploadcorrespondence" name="f2uploadcorrespondence" required
+                            [(ngModel)]="model.f2uploadcorrespondence" #f2uploadcorrespondence="ngModel">
+                        <small *ngIf="f2uploadcorrespondence.invalid && f2uploadcorrespondence.touched" class="text-danger">Upload all
+                            correspondence you have had in the past with AUSTRAC in this regard</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f2frequency">Frequency of internal review called for in your compliance program</label>
                         <div>
-                            <input class="form-control" id="male" name="gender" type="radio" value="male"> <label for="male">
-                                Male</label>
+                            <input class="form-control" type="checkbox" value="quaterly" id="f2quarterly" name="f2quarterly"
+                                [class.is-invalid]="f2quarterly.invalid && f2quarterly.touched" #f2quarterly="ngModel"
+                                [(ngModel)]="model.f2quarterly" required> <label for="f2quarterly">Quarterly</label>
                             <br>
-                            <input class="form-control" id="female" name="gender" type="radio" value="female"> <label for="female">
-                                Female</label>
+                            <input class="form-control" type="checkbox" value="halfly" id="f2halfly" name="f2halfly"
+                                [class.is-invalid]="f2halfly.invalid && f2halfly.touched" #f2halfly="ngModel"
+                                [(ngModel)]="model.f2halfly" required>
+                            <label for="f2halfly">Half yearly</label>
+                            <br>
+                            <input class="form-control" type="checkbox" value="annually" id="f2annually" name="f2annually"
+                                [class.is-invalid]="f2annually.invalid && f2annually.touched" #f2annually="ngModel"
+                                [(ngModel)]="model.f2annually" required>
+                            <label for="f2annually">Annually</label>
+                            <br>
+                            <input class="form-control" type="checkbox" value="biannually" id="f2biannually" name="f2biannually"
+                                [class.is-invalid]="f2biannually.invalid && f2biannually.touched" #f2biannually="ngModel"
+                                [(ngModel)]="model.f2biannually" required>
+                            <label for="f2biannually">Bi-Annually</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Proof of Submission</label>
+                        <label for="f2uploadinternal">Upload a copy of internal audit report</label>
+                        <input type="file" class="form-control-file"
+                            [class.is-invalid]="f2uploadinternal.invalid && f2uploadinternal.touched" id="f2uploadinternal"
+                            name="f2uploadinternal" required [(ngModel)]="model.f2uploadinternal" #f2uploadinternal="ngModel">
+                        <small *ngIf="f2uploadinternal.invalid && f2uploadinternal.touched" class="text-danger">Upload a copy of
+                            internal audit report</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f2extfrequency">Frequency of external review called for in your compliance program</label>
                         <div>
-                            <input class="form-control" id="pan" name="pan" type="checkbox" value="pan" (change)="pan($event)"> <label
-                                for="pan">PAN</label>
+                            <input class="form-control" type="checkbox" value="quarterly" id="f2extquarterly" name="f2extquarterly"
+                                [class.is-invalid]="f2extquarterly.invalid && f2extquarterly.touched" #f2extquarterly="ngModel"
+                                [(ngModel)]="model.f2extquarterly" required> <label for="f2extquarterly">Quarterly</label>
                             <br>
-                            <input class="form-control" id="aadhar" name="aadhar" type="checkbox" value="aadhar" (change)="aadhar($event)">
-                            <label for="aadhar">
-                                Aadhar</label>
+                            <input class="form-control" type="checkbox" value="halfly" id="f2exthalfly" name="f2exthalfly"
+                                [class.is-invalid]="f2exthalfly.invalid && f2exthalfly.touched" #f2exthalfly="ngModel"
+                                [(ngModel)]="model.f2exthalfly" required>
+                            <label for="f2exthalfly">Half yearly</label>
                             <br>
-                            <input class="form-control" id="dl" name="dl" type="checkbox" value="dl" (change)="dl($event)"> <label for="dl">
-                                Driving Licence</label>
+                            <input class="form-control" type="checkbox" value="annually" id="f2extannually" name="f2extannually"
+                                [class.is-invalid]="f2extannually.invalid && f2extannually.touched" #f2extannually="ngModel"
+                                [(ngModel)]="model.f2extannually" required>
+                            <label for="f2extannually">Annually</label>
                             <br>
+                            <input class="form-control" type="checkbox" value="biannually" id="f2extbiannually" name="f2extbiannually"
+                                [class.is-invalid]="f2extbiannually.invalid && f2extbiannually.touched" #f2extbiannually="ngModel"
+                                [(ngModel)]="model.f2extbiannually" required>
+                            <label for="f2extbiannually">Bi-Annually</label>
                         </div>
-                    </div>
-                    <div class="form-group" *ngIf="isPanVisible">
-                        <label for="pan">PAN</label><br>
-                        <input class="form-control" id="pan" name="pan" type="file" class="file">
-                    </div>
-                    <div class="form-group" *ngIf="isAadharVisible">
-                        <label for="aadhar">Aadhar</label> <br>
-                        <input class="form-control" id="aadhar" name="aadhar" type="file" class="file">
-                    </div>
-                    <div class="form-group" *ngIf="isdlVisible">
-                        <label for="dl">Driving Licence</label> <br>
-                        <input class="form-control" id="dl" name="dl" type="file" class="file">
                     </div>
                     <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
+                        <label for="f2uploadext">Upload a copy of latest external audit report</label>
+                        <input type="file" class="form-control-file" [class.is-invalid]="f2uploadext.invalid && f2uploadext.touched"
+                            id="f2uploadext" name="f2uploadext" required [(ngModel)]="model.f2uploadext" #f2uploadext="ngModel">
+                        <small *ngIf="f2uploadext.invalid && f2uploadext.touched" class="text-danger">Upload a copy of latest external
+                            audit report</small>
                     </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD" placeholder="Apartment, studio, or floor">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-                
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 3' === 'Form - '+activeTab">
                 <!-- Form 3 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">Risk assessment</h3>
                     <div class="form-group">
-                        <label for="fname">First name</label>
-                        <input class="form-control" id="fname" name="fname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="lname">Last name</label>
-                        <input class="form-control" id="lname" name="lname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="regoffice">Registered Office</label>
-                        <input class="form-control" id="regoffice" name="regoffice" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
+                        <label for="f3CusTyp">Customer types sufficiently assessed?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f3CusTyp" id="f3CusTypyes" value="yes" #f3CusTyp="ngModel"
+                                [(ngModel)]="model.f3CusTyp" [class.is-invalid]="f3CusTyp.invalid && f3CusTyp.touched" required>
+                            <label for="f3CusTypyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3CusTyp" id="f3CusTypno" value="no" #f3CusTyp="ngModel"
+                                [(ngModel)]="model.f3CusTyp" [class.is-invalid]="f3CusTyp.invalid && f3CusTyp.touched" required>
+                            <label for="f3CusTypno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3CusTyp" id="f3CusTypnotavailable" value="notavailable"
+                                #f3CusTyp="ngModel" [(ngModel)]="model.f3CusTyp"
+                                [class.is-invalid]="f3CusTyp.invalid && f3CusTyp.touched" required>
+                            <label for="f3CusTypnotavailable">Not available</label>
                         </div>
                     </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
+                    <div class="form-group">
+                        <label for="f3assessmentdetails">Customer type assessment details</label>
+                        <textarea class="form-control" [class.is-invalid]="f3assessmentdetails.invalid && f3assessmentdetails.touched"
+                            id="f3assessmentdetails" name="f3assessmentdetails" required [(ngModel)]="model.f3assessmentdetails"
+                            #f3assessmentdetails="ngModel"></textarea>
+                        <small *ngIf="f3assessmentdetails.invalid && f3assessmentdetails.touched" class="text-danger">Customer type
+                            assessment details is required</small>
                     </div>
-                    <!-- Grid row -->
+                    <div class="form-group">
+                        <label for="f3productrisk">Product/Services risk assessed?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f3productrisk" id="f3productriskyes" value="yes"
+                                #f3productrisk="ngModel" [(ngModel)]="model.f3productrisk"
+                                [class.is-invalid]="f3productrisk.invalid && f3productrisk.touched" required>
+                            <label for="f3productriskyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3productrisk" id="f3productriskno" value="no"
+                                #f3productrisk="ngModel" [(ngModel)]="model.f3productrisk"
+                                [class.is-invalid]="f3productrisk.invalid && f3productrisk.touched" required>
+                            <label for="f3productriskno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3productrisk" id="f3productrisknotavailable"
+                                value="notavailable" #f3productrisk="ngModel" [(ngModel)]="model.f3productrisk"
+                                [class.is-invalid]="f3productrisk.invalid && f3productrisk.touched" required>
+                            <label for="f3productrisknotavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3productriskdetails">Product/service risk assessment details</label>
+                        <textarea class="form-control" [class.is-invalid]="f3productriskdetails.invalid && f3productriskdetails.touched"
+                            id="f3productriskdetails" name="f3productriskdetails" required [(ngModel)]="model.f3productriskdetails"
+                            #f3productriskdetails="ngModel"></textarea>
+                        <small *ngIf="f3productriskdetails.invalid && f3productriskdetails.touched" class="text-danger">Product/service
+                            risk assessment details is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3jurisdictionrisk">Jurisdiction risk assessed?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f3jurisdictionrisk" id="f3jurisdictionriskyes" value="yes"
+                                #f3jurisdictionrisk="ngModel" [(ngModel)]="model.f3jurisdictionrisk"
+                                [class.is-invalid]="f3jurisdictionrisk.invalid && f3jurisdictionrisk.touched" required>
+                            <label for="f3jurisdictionriskyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3jurisdictionrisk" id="f3jurisdictionriskno" value="no"
+                                #f3jurisdictionrisk="ngModel" [(ngModel)]="model.f3jurisdictionrisk"
+                                [class.is-invalid]="f3jurisdictionrisk.invalid && f3jurisdictionrisk.touched" required>
+                            <label for="f3jurisdictionriskno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3jurisdictionrisk" id="notavailable" value="notavailable"
+                                #f3jurisdictionrisk="ngModel" [(ngModel)]="model.f3jurisdictionrisk"
+                                [class.is-invalid]="f3jurisdictionrisk.invalid && f3jurisdictionrisk.touched" required>
+                            <label for="notavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3jurisdictionriskdetails">Jurisdiction risk assessment details</label>
+                        <textarea class="form-control"
+                            [class.is-invalid]="f3jurisdictionriskdetails.invalid && f3jurisdictionriskdetails.touched"
+                            id="f3jurisdictionriskdetails" name="f3jurisdictionriskdetails" required
+                            [(ngModel)]="model.f3jurisdictionriskdetails" #f3jurisdictionriskdetails="ngModel"></textarea>
+                        <small *ngIf="f3jurisdictionriskdetails.invalid && f3jurisdictionriskdetails.touched"
+                            class="text-danger">Jurisdiction risk assessment details</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3deliveryrisk">Delivery method risk assessed?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f3deliveryrisk" id="f3deliveryriskyes" value="yes"
+                                #f3deliveryrisk="ngModel" [(ngModel)]="model.f3deliveryrisk"
+                                [class.is-invalid]="f3deliveryrisk.invalid && f3deliveryrisk.touched" required>
+                            <label for="f3deliveryriskyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3deliveryrisk" id="f3deliveryriskno" value="no"
+                                #f3deliveryrisk="ngModel" [(ngModel)]="model.f3deliveryrisk"
+                                [class.is-invalid]="f3deliveryrisk.invalid && f3deliveryrisk.touched" required>
+                            <label for="f3deliveryriskno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3deliveryrisk" id="f3deliveryrisknotavailable"
+                                value="notavailable" #f3deliveryrisk="ngModel" [(ngModel)]="model.f3deliveryrisk"
+                                [class.is-invalid]="f3deliveryrisk.invalid && f3deliveryrisk.touched" required>
+                            <label for="f3deliveryrisknotavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3deliveryriskdetails">Delivery method risk assessment details</label>
+                        <textarea class="form-control"
+                            [class.is-invalid]="f3deliveryriskdetails.invalid && f3deliveryriskdetails.touched"
+                            id="f3deliveryriskdetails" name="f3deliveryriskdetails" required [(ngModel)]="model.f3deliveryriskdetails"
+                            #f3deliveryriskdetails="ngModel"></textarea>
+                        <small *ngIf="f3deliveryriskdetails.invalid && f3deliveryriskdetails.touched" class="text-danger">Delivery
+                            method risk assessment details</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3partnerrisk">Associates and Channel Partners Risk Mitigation in Place?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f3partnerrisk" id="f3partnerriskyes" value="yes"
+                                #f3partnerrisk="ngModel" [(ngModel)]="model.f3partnerrisk"
+                                [class.is-invalid]="f3partnerrisk.invalid && f3partnerrisk.touched" required>
+                            <label for="f3partnerriskyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3partnerrisk" id="f3partnerriskno" value="no"
+                                #f3partnerrisk="ngModel" [(ngModel)]="model.f3partnerrisk"
+                                [class.is-invalid]="f3partnerrisk.invalid && f3partnerrisk.touched" required>
+                            <label for="f3partnerriskno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3partnerrisk" id="f3partnerrisknotavailable"
+                                value="notavailable" #f3partnerrisk="ngModel" [(ngModel)]="model.f3partnerrisk"
+                                [class.is-invalid]="f3partnerrisk.invalid && f3partnerrisk.touched" required>
+                            <label for="f3partnerrisknotavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3partnerriskdetails">Associates and Channel Partners Risk Mitigation details</label>
+                        <textarea class="form-control" [class.is-invalid]="f3partnerriskdetails.invalid && f3partnerriskdetails.touched"
+                            id="f3partnerriskdetails" name="f3partnerriskdetails" required [(ngModel)]="model.f3partnerriskdetails"
+                            #f3partnerriskdetails="ngModel"></textarea>
+                        <small *ngIf="f3partnerriskdetails.invalid && f3partnerriskdetails.touched" class="text-danger">Associates and
+                            Channel Partners Risk Mitigation details</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3manualscreen">Availability of a manual screening process in place?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f3manualscreen" id="f3manualscreenyes" value="yes"
+                                #f3manualscreen="ngModel" [(ngModel)]="model.f3manualscreen"
+                                [class.is-invalid]="f3manualscreen.invalid && f3manualscreen.touched" required>
+                            <label for="f3manualscreenyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3manualscreen" id="f3manualscreenno" value="no"
+                                #f3manualscreen="ngModel" [(ngModel)]="model.f3manualscreen"
+                                [class.is-invalid]="f3manualscreen.invalid && f3manualscreen.touched" required>
+                            <label for="f3manualscreenno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3manualscreen" id="f3manualscreennotavailable"
+                                value="notavailable" #f3manualscreen="ngModel" [(ngModel)]="model.f3manualscreen"
+                                [class.is-invalid]="f3manualscreen.invalid && f3manualscreen.touched" required>
+                            <label for="f3manualscreennotavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3automatedscreen">Availability of an automated screening process in place?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f3automatedscreen" id="f3automatedscreenyes" value="yes"
+                                #f3automatedscreen="ngModel" [(ngModel)]="model.f3automatedscreen"
+                                [class.is-invalid]="f3automatedscreen.invalid && f3automatedscreen.touched" required>
+                            <label for="f3automatedscreenyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3automatedscreen" id="f3automatedscreenno" value="no"
+                                #f3automatedscreen="ngModel" [(ngModel)]="model.f3automatedscreen"
+                                [class.is-invalid]="f3automatedscreen.invalid && f3automatedscreen.touched" required>
+                            <label for="f3automatedscreenno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f3automatedscreen" id="notavailable" value="notavailable"
+                                #f3automatedscreen="ngModel" [(ngModel)]="model.f3automatedscreen"
+                                [class.is-invalid]="f3automatedscreen.invalid && f3automatedscreen.touched" required>
+                            <label for="notavailable">Not available</label>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 4' === 'Form - '+activeTab">
                 <!-- Form 4 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">KYC and Customer due diligence</h3>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input class="form-control" id="name" name="nname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
+                        <label for="f4kyc">Does this entity have KYC in Place?</label>
                         <div>
-                            <input class="form-control" id="male" name="gender" type="radio" value="male"> <label for="male">
-                                Male</label>
+                            <input class="form-control" type="radio" name="f4kyc" id="f4kycyes" value="yes" #f4kyc="ngModel"
+                                [(ngModel)]="model.f4kyc" [class.is-invalid]="f4kyc.invalid && f4kyc.touched" required>
+                            <label for="f4kycyes">Yes</label>
                             <br>
-                            <input class="form-control" id="female" name="gender" type="radio" value="female"> <label for="female">
-                                Female</label>
+                            <input class="form-control" type="radio" name="f4kyc" id="f4kycno" value="no" #f4kyc="ngModel"
+                                [(ngModel)]="model.f4kyc" [class.is-invalid]="f4kyc.invalid && f4kyc.touched" required>
+                            <label for="f4kycno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4kyc" id="f4kycnotavailable" value="notavailable"
+                                #f4kyc="ngModel" [(ngModel)]="model.f4kyc" [class.is-invalid]="f4kyc.invalid && f4kyc.touched" required>
+                            <label for="f4kycnotavailable">Not available</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Proof of Submission</label>
+                        <label for="f4kycprocss">Details regarding KYC processes in place</label>
+                        <textarea class="form-control" [class.is-invalid]="f4kycprocss.invalid && f4kycprocss.touched" id="f4kycprocss"
+                            name="f4kycprocss" required [(ngModel)]="model.f4kycprocss" #f4kycprocss="ngModel"></textarea>
+                        <small *ngIf="f4kycprocss.invalid && f4kycprocss.touched" class="text-danger">Details regarding KYC processes in
+                            place is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f4iddoc">Does this entity independently tests the authenticity and ID Documents Presented?</label>
                         <div>
-                            <input class="form-control" id="pan" name="pan" type="checkbox" value="pan" (change)="pan($event)"> <label
-                                for="pan">PAN</label>
+                            <input class="form-control" type="radio" name="f4iddoc" id="greenID" value="greenID" #f4iddoc="ngModel"
+                                [(ngModel)]="model.f4iddoc" [class.is-invalid]="f4iddoc.invalid && f4iddoc.touched" required>
+                            <label for="greenID">Green ID</label>
                             <br>
-                            <input class="form-control" id="aadhar" name="aadhar" type="checkbox" value="aadhar"
-                                (change)="aadhar($event)">
-                            <label for="aadhar">
-                                Aadhar</label>
+                            <input class="form-control" type="radio" name="f4iddoc" id="veda" value="veda" #f4iddoc="ngModel"
+                                [(ngModel)]="model.f4iddoc" [class.is-invalid]="f4iddoc.invalid && f4iddoc.touched" required>
+                            <label for="veda">Veda</label>
                             <br>
-                            <input class="form-control" id="dl" name="dl" type="checkbox" value="dl" (change)="dl($event)"> <label
-                                for="dl">
-                                Driving Licence</label>
+                            <input class="form-control" type="radio" name="f4iddoc" id="dowjones" value="dowjones" #f4iddoc="ngModel"
+                                [(ngModel)]="model.f4iddoc" [class.is-invalid]="f4iddoc.invalid && f4iddoc.touched" required>
+                            <label for="dowjones">Dow jones</label>
                             <br>
+                            <input class="form-control" type="radio" name="f4iddoc" id="worldcheck" value="worldcheck"
+                                #f4iddoc="ngModel" [(ngModel)]="model.f4iddoc" [class.is-invalid]="f4iddoc.invalid && f4iddoc.touched"
+                                required>
+                            <label for="worldcheck">World Check</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4iddoc" id="others" value="others" #f4iddoc="ngModel"
+                                [(ngModel)]="model.f4iddoc" [class.is-invalid]="f4iddoc.invalid && f4iddoc.touched" required>
+                            <label for="others">Others</label>
                         </div>
-                    </div>
-                    <div class="form-group" *ngIf="isPanVisible">
-                        <label for="pan">PAN</label><br>
-                        <input class="form-control" id="pan" name="pan" type="file" class="file">
-                    </div>
-                    <div class="form-group" *ngIf="isAadharVisible">
-                        <label for="aadhar">Aadhar</label> <br>
-                        <input class="form-control" id="aadhar" name="aadhar" type="file" class="file">
-                    </div>
-                    <div class="form-group" *ngIf="isdlVisible">
-                        <label for="dl">Driving Licence</label> <br>
-                        <input class="form-control" id="dl" name="dl" type="file" class="file">
                     </div>
                     <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
+                        <label for="f4autheticate">Details regarding if this entity independently tests the authenticity and ID
+                            Documents Presented?</label>
+                        <textarea class="form-control" [class.is-invalid]="f4autheticate.invalid && f4autheticate.touched"
+                            id="f4autheticate" name="f4autheticate" required [(ngModel)]="model.f4autheticate"
+                            #f4autheticate="ngModel"></textarea>
+                        <small *ngIf="f4autheticate.invalid && f4autheticate.touched" class="text-danger">Details regarding if this
+                            entity independently tests the authenticity and ID Documents is required</small>
                     </div>
                     <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
+                        <label for="f4monitoring">Does this entity have Transaction Monitoring Processes in Place?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f4monitoring" id="f4monitoringyes" value="yes"
+                                #f4monitoring="ngModel" [(ngModel)]="model.f4monitoring"
+                                [class.is-invalid]="f4monitoring.invalid && f4monitoring.touched" required>
+                            <label for="f4monitoringyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4monitoring" id="f4monitoringno" value="no"
+                                #f4monitoring="ngModel" [(ngModel)]="model.f4monitoring"
+                                [class.is-invalid]="f4monitoring.invalid && f4monitoring.touched" required>
+                            <label for="f4monitoringno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4monitoring" id="f4monitoringnotavailable"
+                                value="notavailable" #f4monitoring="ngModel" [(ngModel)]="model.f4monitoring"
+                                [class.is-invalid]="f4monitoring.invalid && f4monitoring.touched" required>
+                            <label for="f4monitoringnotavailable">Not available</label>
+                        </div>
                     </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD" placeholder="Apartment, studio, or floor">
-                            </div>
+                    <div class="form-group">
+                        <label for="f4monitoringdetails">Details regarding this entity having Transaction Monitoring processes in place
+                        </label>
+                        <textarea class="form-control" [class.is-invalid]="f4monitoringdetails.invalid && f4monitoringdetails.touched"
+                            id="f4monitoringdetails" name="f4monitoringdetails" required [(ngModel)]="model.f4monitoringdetails"
+                            #f4monitoringdetails="ngModel"></textarea>
+                        <small *ngIf="f4monitoringdetails.invalid && f4monitoringdetails.touched" class="text-danger">Details regarding
+                            this entity having Transaction Monitoring processes in place is required</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f4redflags">Does this entity have Red Flags incorporated in its Transaction Monitoring?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f4redflags" id="f4redflagsyes" value="yes"
+                                #f4redflags="ngModel" [(ngModel)]="model.f4redflags"
+                                [class.is-invalid]="f4redflags.invalid && f4redflags.touched" required>
+                            <label for="f4redflagsyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4redflags" id="f4redflagsno" value="no"
+                                #f4redflags="ngModel" [(ngModel)]="model.f4redflags"
+                                [class.is-invalid]="f4redflags.invalid && f4redflags.touched" required>
+                            <label for="f4redflagsno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4redflags" id="notavailable" value="notavailable"
+                                #f4redflags="ngModel" [(ngModel)]="model.f4redflags"
+                                [class.is-invalid]="f4redflags.invalid && f4redflags.touched" required>
+                            <label for="notavailable">Not available</label>
                         </div>
                     </div>
-                    <!-- Grid row -->
-                
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
+                    <div class="form-group">
+                        <label for="f3redflagsdetails">Details regarding this entity having Red Flags incorporated in its Transaction
+                            Monitoring?</label>
+                        <textarea class="form-control" [class.is-invalid]="f3redflagsdetails.invalid && f3redflagsdetails.touched"
+                            id="f3redflagsdetails" name="f3redflagsdetails" required [(ngModel)]="model.f3redflagsdetails"
+                            #f3redflagsdetails="ngModel"></textarea>
+                        <small *ngIf="f3redflagsdetails.invalid && f3redflagsdetails.touched" class="text-danger">Details regarding this
+                            entity having Red Flags incorporated in its Transaction Monitoring?</small>
                     </div>
-                    <!-- Grid row -->
+                    <div class="form-group">
+                        <label for="f4conducts">Does this entity conducts all of the Transaction Monitoring on its own?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f4conducts" id="f4conductsyes" value="yes"
+                                #f4conducts="ngModel" [(ngModel)]="model.f4conducts"
+                                [class.is-invalid]="f4conducts.invalid && f4conducts.touched" required>
+                            <label for="f4conductsyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4conducts" id="f4conductsno" value="no"
+                                #f4conducts="ngModel" [(ngModel)]="model.f4conducts"
+                                [class.is-invalid]="f4conducts.invalid && f4conducts.touched" required>
+                            <label for="f4conductsno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4conducts" id="f4conductsnotavailable" value="notavailable"
+                                #f4conducts="ngModel" [(ngModel)]="model.f4conducts"
+                                [class.is-invalid]="f4conducts.invalid && f4conducts.touched" required>
+                            <label for="f4conductsnotavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f3conductdetails">Details regarding this entity conducts all of the Transaction Monitoring on its
+                            own?</label>
+                        <textarea class="form-control" [class.is-invalid]="f3conductdetails.invalid && f3conductdetails.touched"
+                            id="f3conductdetails" name="f3conductdetails" required [(ngModel)]="model.f3conductdetails"
+                            #f3conductdetails="ngModel"></textarea>
+                        <small *ngIf="f3conductdetails.invalid && f3conductdetails.touched" class="text-danger">Details regarding this
+                            entity conducts all of the Transaction Monitoring on its own?</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f4beneficial">Does this entity have a policy on Beneficial Ownership Tracking and
+                            Management?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f4beneficial" id="f4beneficialyes" value="yes"
+                                #f4beneficial="ngModel" [(ngModel)]="model.f4beneficial"
+                                [class.is-invalid]="f4beneficial.invalid && f4beneficial.touched" required>
+                            <label for="f4beneficialyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4beneficial" id="f4beneficialno" value="no"
+                                #f4beneficial="ngModel" [(ngModel)]="model.f4beneficial"
+                                [class.is-invalid]="f4beneficial.invalid && f4beneficial.touched" required>
+                            <label for="f4beneficialno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4beneficial" id="f4beneficialnotavailable"
+                                value="notavailable" #f4beneficial="ngModel" [(ngModel)]="model.f4beneficial"
+                                [class.is-invalid]="f4beneficial.invalid && f4beneficial.touched" required>
+                            <label for="f4beneficialnotavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f4beneficialdetails">Details regarding this entity have a policy on Beneficial Ownership Tracking
+                            and Management?</label>
+                        <textarea class="form-control" [class.is-invalid]="f4beneficialdetails.invalid && f4beneficialdetails.touched"
+                            id="f4beneficialdetails" name="f4beneficialdetails" required [(ngModel)]="model.f4beneficialdetails"
+                            #f4beneficialdetails="ngModel"></textarea>
+                        <small *ngIf="f4beneficialdetails.invalid && f4beneficialdetails.touched" class="text-danger">Details regarding
+                            this entity have a policy on Beneficial Ownership Tracking and Management?</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="f4records">Does this entity explains how and how long this entity retains its records of Customers
+                            and Transactions?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f4records" id="f4recordsyes" value="yes" #f4records="ngModel"
+                                [(ngModel)]="model.f4records" [class.is-invalid]="f4records.invalid && f4records.touched" required>
+                            <label for="f4recordsyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4records" id="f4recordsno" value="no" #f4records="ngModel"
+                                [(ngModel)]="model.f4records" [class.is-invalid]="f4records.invalid && f4records.touched" required>
+                            <label for="f4recordsno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f4records" id="f4recordsnotavailable" value="notavailable"
+                                #f4records="ngModel" [(ngModel)]="model.f4records"
+                                [class.is-invalid]="f4records.invalid && f4records.touched" required>
+                            <label for="f4recordsnotavailable">Not available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f4recordsdetails">Details regarding if this entity explains how and how long this entity retains its
+                            records of Customers and Transactions?</label>
+                        <textarea class="form-control" [class.is-invalid]="f4recordsdetails.invalid && f4recordsdetails.touched"
+                            id="f4recordsdetails" name="f4recordsdetails" required [(ngModel)]="model.f4recordsdetails"
+                            #f4recordsdetails="ngModel"></textarea>
+                        <small *ngIf="f4recordsdetails.invalid && f4recordsdetails.touched" class="text-danger">Details regarding if
+                            this entity explains how and how long this entity retains its records of Customers and
+                            Transactions is required</small>
+                    </div>
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 5' === 'Form - '+activeTab">
                 <!-- Form 5 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">MSB</h3>
                     <div class="form-group">
-                        <label for="fname">First name</label>
-                        <input class="form-control" id="fname" name="fname" type="text">
+                        <label for="f5matrix">Sanction screening and suspicious transactions matrix</label>
+                        <input class="form-control-range" type="range" name="f5matrix" id="yes" value="yes" #f5matrix="ngModel"
+                            [(ngModel)]="model.f5matrix" [class.is-invalid]="f5matrix.invalid && f5matrix.touched" required>
                     </div>
-                    <div class="form-group">
-                        <label for="lname">Last name</label>
-                        <input class="form-control" id="lname" name="lname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="regoffice">Registered Office</label>
-                        <input class="form-control" id="regoffice" name="regoffice" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 6' === 'Form - '+activeTab">
                 <!-- Form 6 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">KYC and Customer due diligence</h3>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input class="form-control" id="name" name="nname" type="text">
+                        <label for="f6trained">Number of weeks employees trained initially</label>
+                        <input class="form-control" [class.is-invalid]="f6trained.invalid && f6trained.touched" id="f6trained"
+                            name="f6trained" type="number" required [(ngModel)]="model.f6trained" #f6trained="ngModel">
+                        <small *ngIf="f6trained.invalid && f6trained.touched" class="text-danger">Number of weeks employees trained
+                            initially is required</small>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
+                        <label for="f6uploadcopy">Upload a copy of recruitment policy</label>
+                        <input type="file" class="form-control-file" [class.is-invalid]="f6uploadcopy.invalid && f6uploadcopy.touched"
+                            id="f6uploadcopy" name="f6uploadcopy" required [(ngModel)]="model.f6uploadcopy" #f6uploadcopy="ngModel">
+                        <small *ngIf="f6uploadcopy.invalid && f6uploadcopy.touched" class="text-danger">Upload a copy of recruitment
+                            policy is required</small>
                     </div>
                     <div class="form-group">
-                        <label for="gender">Gender</label>
+                        <label for="f6frequency">How Frequently does this entity train its workforce on new and emerging issues on AML
+                            CTF Compliance</label>
                         <div>
-                            <input class="form-control" id="male" name="gender" type="radio" value="male"> <label
-                                for="male">
-                                Male</label>
+                            <input class="form-control" type="checkbox" value="quarterly" id="f6quarterly" name="f6quarterly"
+                                [class.is-invalid]="f6quarterly.invalid && f6quarterly.touched" #f6quarterly="ngModel"
+                                [(ngModel)]="model.f6quarterly" required> <label for="f6quarterly">Quarterly</label>
                             <br>
-                            <input class="form-control" id="female" name="gender" type="radio" value="female"> <label
-                                for="female">
-                                Female</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Proof of Submission</label>
-                        <div>
-                            <input class="form-control" id="pan" name="pan" type="checkbox" value="pan"> <label
-                                for="pan"> PAN</label>
+                            <input class="form-control" type="checkbox" value="halfly" id="f6halfly" name="f6halfly"
+                                [class.is-invalid]="f6halfly.invalid && f6halfly.touched" #f6halfly="ngModel"
+                                [(ngModel)]="model.f6halfly" required>
+                            <label for="f6halfly">Half yearly</label>
                             <br>
-                            <input class="form-control" id="aadhar" name="aadhar" type="checkbox" value="aadhar"> <label
-                                for="aadhar">
-                                Aadhar</label>
+                            <input class="form-control" type="checkbox" value="annually" id="f6annually" name="f6annually"
+                                [class.is-invalid]="f6annually.invalid && f6annually.touched" #f6annually="ngModel"
+                                [(ngModel)]="model.f6annually" required>
+                            <label for="f6annually">Annually</label>
                             <br>
-                            <input class="form-control" id="dl" name="dl" type="checkbox" value="dl">
-                            <label for="dl"> Driving Licence</label>
-                            <br>
+                            <input class="form-control" type="checkbox" value="biannually" id="f6biannually" name="f6biannually"
+                                [class.is-invalid]="f6biannually.invalid && f6biannually.touched" #f6biannually="ngModel"
+                                [(ngModel)]="model.f6biannually" required>
+                            <label for="f6biannually">Bi-Annually</label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="pan">PAN</label>
-                        <input class="form-control" id="pan" name="pan" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="aadhar">Aadhar</label>
-                        <input class="form-control" id="aadhar" name="aadhar" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="dl">Driving Licence</label>
-                        <input class="form-control" id="dl" name="dl" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 7' === 'Form - '+activeTab">
                 <!-- Form 7 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">Reporting processes</h3>
                     <div class="form-group">
-                        <label for="fname">First name</label>
-                        <input class="form-control" id="fname" name="fname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="lname">Last name</label>
-                        <input class="form-control" id="lname" name="lname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="regoffice">Registered Office</label>
-                        <input class="form-control" id="regoffice" name="regoffice" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
+                        <label for="f7threshold">Does this entity recognises and put procedures in place to submit Threshold
+                            Transactions?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f7threshold" id="f7thresholdyes" value="yes"
+                                #f7threshold="ngModel" [(ngModel)]="model.f7threshold"
+                                [class.is-invalid]="f7threshold.invalid && f7threshold.touched" required>
+                            <label for="f7thresholdyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f7threshold" id="f7thresholdno" value="no"
+                                #f7threshold="ngModel" [(ngModel)]="model.f7threshold"
+                                [class.is-invalid]="f7threshold.invalid && f7threshold.touched" required>
+                            <label for="f7thresholdno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f7threshold" id="f7thresholdnotavailable"
+                                value="notavailable" #f7threshold="ngModel" [(ngModel)]="model.f7threshold"
+                                [class.is-invalid]="f7threshold.invalid && f7threshold.touched" required>
+                            <label for="f7thresholdnotavailable">Not available</label>
                         </div>
                     </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
+                    <div class="form-group">
+                        <label for="f7reports">Does this entity recognises and put procedures in place to submit International Fund
+                            Transfer Instructions Reports?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f7reports" id="f7reportsf7reportsyes" value="yes"
+                                #f7reports="ngModel" [(ngModel)]="model.f7reports"
+                                [class.is-invalid]="f7reports.invalid && f7reports.touched" required>
+                            <label for="f7reportsf7reportsyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f7reports" id="f7reportsno" value="no" #f7reports="ngModel"
+                                [(ngModel)]="model.f7reports" [class.is-invalid]="f7reports.invalid && f7reports.touched" required>
+                            <label for="f7reportsno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f7reports" id="f7reportsnotavailable" value="notavailable"
+                                #f7reports="ngModel" [(ngModel)]="model.f7reports"
+                                [class.is-invalid]="f7reports.invalid && f7reports.touched" required>
+                            <label for="f7reportsnotavailable">Not available</label>
                         </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
                     </div>
-                    <!-- Grid row -->
+                    <div class="form-group">
+                        <label for="f7suspicious">Does this entity recognises and put procedures in place to submit Suspicious Matter
+                            Reports?</label>
+                        <div>
+                            <input class="form-control" type="radio" name="f7suspicious" id="f7suspiciousyes" value="yes"
+                                #f7suspicious="ngModel" [(ngModel)]="model.f7suspicious"
+                                [class.is-invalid]="f7suspicious.invalid && f7suspicious.touched" required>
+                            <label for="f7suspiciousyes">Yes</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f7suspicious" id="f7suspiciousno" value="no"
+                                #f7suspicious="ngModel" [(ngModel)]="model.f7suspicious"
+                                [class.is-invalid]="f7suspicious.invalid && f7suspicious.touched" required>
+                            <label for="f7suspiciousno">No</label>
+                            <br>
+                            <input class="form-control" type="radio" name="f7suspicious" id="f7suspiciousnotavailable"
+                                value="notavailable" #f7suspicious="ngModel" [(ngModel)]="model.f7suspicious"
+                                [class.is-invalid]="f7suspicious.invalid && f7suspicious.touched" required>
+                            <label for="f7suspiciousnotavailable">Not available</label>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 8' === 'Form - '+activeTab">
                 <!-- Form 8 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">Testing Results</h3>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input class="form-control" id="name" name="nname" type="text">
+                        <label for="f8testing">Testing Results</label>
+                        <textarea class="form-control" [class.is-invalid]="f8testing.invalid && f8testing.touched" id="f8testing"
+                            name="f8testing" required [(ngModel)]="model.f8testing" #f8testing="ngModel"></textarea>
+                        <small *ngIf="f8testing.invalid && f8testing.touched" class="text-danger">Details is required</small>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <div>
-                            <input class="form-control" id="male" name="gender" type="radio" value="male"> <label
-                                for="male">
-                                Male</label>
-                            <br>
-                            <input class="form-control" id="female" name="gender" type="radio" value="female"> <label
-                                for="female">
-                                Female</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Proof of Submission</label>
-                        <div>
-                            <input class="form-control" id="pan" name="pan" type="checkbox" value="pan"> <label
-                                for="pan"> PAN</label>
-                            <br>
-                            <input class="form-control" id="aadhar" name="aadhar" type="checkbox" value="aadhar"> <label
-                                for="aadhar">
-                                Aadhar</label>
-                            <br>
-                            <input class="form-control" id="dl" name="dl" type="checkbox" value="dl">
-                            <label for="dl"> Driving Licence</label>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pan">PAN</label>
-                        <input class="form-control" id="pan" name="pan" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="aadhar">Aadhar</label>
-                        <input class="form-control" id="aadhar" name="aadhar" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="dl">Driving Licence</label>
-                        <input class="form-control" id="dl" name="dl" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
                 </form>
             </div>
             <div class="p-3 bg-light" *ngIf="'Form - 9' === 'Form - '+activeTab">
                 <!-- Form 9 -->
-                <form role="form" action="" method="">
+                <form #DiagnosticsData="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3 class="text-left">General Comments</h3>
                     <div class="form-group">
-                        <label for="fname">First name</label>
-                        <input class="form-control" id="fname" name="fname" type="text">
+                        <label for="f9comments">General Comments</label>
+                        <textarea class="form-control" [class.is-invalid]="f9comments.invalid && f9comments.touched" id="f9comments"
+                            name="f9comments" required [(ngModel)]="model.f9comments" #f9comments="ngModel"></textarea>
+                        <small *ngIf="f9comments.invalid && f9comments.touched" class="text-danger">Details is required</small>
                     </div>
-                    <div class="form-group">
-                        <label for="lname">Last name</label>
-                        <input class="form-control" id="lname" name="lname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="regoffice">Registered Office</label>
-                        <input class="form-control" id="regoffice" name="regoffice" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                </form>
-            </div>
-            <div class="p-3 bg-light" *ngIf="'Form - 10' === 'Form - '+activeTab">
-                <!-- Form 10 -->
-                <form role="form" action="" method="">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input class="form-control" id="name" name="nname" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input class="form-control" id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <div>
-                            <input class="form-control" id="male" name="gender" type="radio" value="male"> <label
-                                for="male">
-                                Male</label>
-                            <br>
-                            <input class="form-control" id="female" name="gender" type="radio" value="female"> <label
-                                for="female">
-                                Female</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Proof of Submission</label>
-                        <div>
-                            <input class="form-control" id="pan" name="pan" type="checkbox" value="pan"> <label
-                                for="pan"> PAN</label>
-                            <br>
-                            <input class="form-control" id="aadhar" name="aadhar" type="checkbox" value="aadhar"> <label
-                                for="aadhar">
-                                Aadhar</label>
-                            <br>
-                            <input class="form-control" id="dl" name="dl" type="checkbox" value="dl">
-                            <label for="dl"> Driving Licence</label>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pan">PAN</label>
-                        <input class="form-control" id="pan" name="pan" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="aadhar">Aadhar</label>
-                        <input class="form-control" id="aadhar" name="aadhar" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="dl">Driving Licence</label>
-                        <input class="form-control" id="dl" name="dl" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="placebusiness">Place of Business</label>
-                        <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="empnumber">Employee number</label>
-                        <input class="form-control" id="empnumber" name="empnumber" type="text">
-                    </div>
-                    <!-- Grid row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddressMD">Address</label>
-                                <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="inputAddress2MD">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2MD"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Grid row -->
-
-                    <!-- Grid row -->
-                    <div class="form-row">
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputCityMD">City</label>
-                                <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="inputZipMD">Zip</label>
-                                <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                            </div>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
                 </form>
             </div>
         </section>
@@ -877,78 +797,12 @@
         </div>
         <button type="button" class="btn btn-primary ml-3 pager" *ngIf="activeTab !== wizardCount.length"
             (click)="changeTab(activeTab,'next')"><i class="fas fa-angle-double-right"></i></button>
-        <a class="btn btn-danger ml-3" *ngIf="activeTab === wizardCount.length" routerLink="/generatepdf">Generate
-            PDF</a>
+        <!-- <a class="btn btn-danger ml-3 generatePdf" *ngIf="activeTab === wizardCount.length" routerLink="/generatepdf" (click)="onPopulate()">Generate
+            PDF</a> -->
         <!-- <button type="button" class="btn btn-success ml-3" *ngIf="activeTab === wizardCount.length"
-            (click)="changeTab(activeTab,'submit')">Submit</button> -->
+            (click)="onSubmit()">Submit</button> -->
+
+            <button type="button" class="btn btn-success ml-3" *ngIf="activeTab === wizardCount.length"
+                (click)="onPopulate()">Submit</button>
     </section>
 </div>
-
-
-<!-- <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-sm-12">
-            <h1 class="page-header text-center">
-                Forms
-            </h1>
-
-            <form role="form" action="" method="">
-                <div class="form-group">
-                    <label for="fname">First name</label>
-                    <input class="form-control" id="fname" name="fname" type="text"> 
-                </div>
-                <div class="form-group">
-                    <label for="lname">Last name</label>
-                    <input class="form-control" id="lname" name="lname" type="text">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input class="form-control" id="email" name="email" type="email">
-                </div>
-                <div class="form-group">
-                    <label for="regoffice">Registered Office</label>
-                    <input class="form-control" id="regoffice" name="regoffice" type="text">
-                </div>
-                <div class="form-group">
-                    <label for="placebusiness">Place of Business</label>
-                    <input class="form-control" id="placebusiness" name="placebusiness" type="text">
-                </div>
-                <div class="form-group">
-                    <label for="empnumber">Employee number</label>
-                    <input class="form-control" id="empnumber" name="empnumber" type="text">
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="inputAddressMD">Address</label>
-                            <input type="text" class="form-control" id="inputAddressMD" placeholder="1234 Main St">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="inputAddress2MD">Address 2</label>
-                            <input type="text" class="form-control" id="inputAddress2MD"
-                                placeholder="Apartment, studio, or floor">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="inputCityMD">City</label>
-                            <input type="text" class="form-control" id="inputCityMD" placeholder="New York City">
-                        </div>
-                    </div>
-                
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="inputZipMD">Zip</label>
-                            <input type="text" class="form-control" id="inputZipMD" placeholder="11206-1117">
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-<form> -->

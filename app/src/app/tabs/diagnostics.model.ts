@@ -1,0 +1,82 @@
+export class DiagnosticsData {
+  // formData : 
+  constructor(
+    //1
+    public entityName: string,
+    public tradingName: string,
+    public regOffice: string,
+    public placebusiness: string,
+    public abnNumber: number,
+    public address1: string,
+    public address2: string,
+    public city: string,
+    public zip: string,
+    public entity: string,
+    public noofemployee: number,
+    //2
+    public f2entityno: number,
+    public f2details: string,
+    public f2date: string,
+    public f2officerfname: string,
+    public f2officerlname: string,
+    public f2manager: string,
+    public f2uploadcopy: string,
+    public f2reviewed: boolean,
+    public f2uploadcorrespondence: string,
+    public f2quarterly: string,
+    public f2halfly: string,
+    public f2annually: string,
+    public f2biannually: string,
+    public f2uploadinternal: string,
+    public f2extquarterly: string,
+    public f2exthalfly: string,
+    public f2extannually: string,
+    public f2extbiannually: string,
+    public f2uploadext: string,
+    // 3
+    public f3CusTyp: boolean,
+    public f3assessmentdetails: string,
+    public f3productrisk: boolean,
+    public f3productriskdetails: string,
+    public f3jurisdictionrisk: boolean,
+    public f3jurisdictionriskdetails: string,
+    public f3deliveryrisk: boolean,
+    public f3deliveryriskdetails: string,
+    public f3partnerrisk: boolean,
+    public f3partnerriskdetails: string,
+    public f3manualscreen: boolean,
+    public f3automatedscreen: boolean,
+    //4
+    public f4kyc: boolean,
+    public f4kycprocss: string,
+    public f4iddoc: boolean,
+    public f4autheticate: string,
+    public f4monitoring: boolean,
+    public f4monitoringdetails: string,
+    public f4redflags: boolean,
+    public f3redflagsdetails: string,
+    public f4conducts: boolean,
+    public f3conductdetails: string,
+    public f4beneficial: boolean,
+    public f4beneficialdetails: string,
+    public f4records: boolean,
+    public f4recordsdetails: string,
+    //5
+    public f5matrix: number,
+    //6
+    public f6trained: number,
+    public f6uploadcopy: string,
+    public f6quarterly: boolean,
+    public f6halfly: boolean,
+    public f6annually: boolean,
+    public f6biannually: boolean,
+    // 7
+    public f7threshold: boolean,
+    public f7reports: boolean,
+    public f7suspicious: boolean,
+    //8
+    public f8testing: string,
+    // 9
+    public f9comments: string
+  ) { }
+}
