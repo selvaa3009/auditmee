@@ -2,33 +2,33 @@
     <h2>PDF page</h2>
 
     <div>
-        {{ model.entityName }}
-        <br>
-        {{ model.tradingName }}
-        <br>
-        {{ model.regOffice }}
-        <br>
-        {{ model.placebusiness }}
-        <br>
-        {{ model.abnNumber }}
-        <br>
-        {{ model.address1 }}
-        <br>
-        {{ model.address2 }}
-        <br>
-        {{ model.city }}
+        <!-- <h3 class="mb-3">Form 1 details</h3> -->
+        <p *ngIf="!model.entityName.valid"><strong>Entity name:</strong> {{ model.entityName }}</p>
+        <p *ngIf="!model.tradingName.valid"><strong>Trading name:</strong> {{ model.tradingName }}</p>
+        <p *ngIf="!model.regOffice.valid"><strong>Registered office:</strong> {{ model.regOffice }}</p>
+        <p *ngIf="!model.placebusiness.valid"><strong>Place of business:</strong> {{ model.placebusiness }}</p>
+        <p *ngIf="!model.abnNumber.valid"><strong>ABN number:</strong> {{ model.abnNumber }}</p>
+        <p *ngIf="!model.address1.valid"><strong>Street:</strong> {{ model.address1 }}</p>
+        <p *ngIf="!model.address2.valid"><strong>Area:</strong> {{ model.address2 }}</p>
+        <p *ngIf="!model.city.valid"><strong>City:</strong> {{ model.city }}</p>
+        <p *ngIf="!model.zip.valid"><strong>Zip</strong> {{ model.zip }}</p>
+        <p *ngIf="!model.entity.valid"><strong>Entity</strong> {{ model.entity }}</p>
+        <p *ngIf="!model.noofemployee.valid"><strong>Number of employee</strong> {{ model.noofemployee }}</p>
     </div>
+
     <div>
-        {{ model.f10name}}
-        <br>
-        {{ model.f10email}}
-        <br>
-        {{ model.f10gender}}
-        <br>
-        {{ model.f10placebusiness}}
-        <br>
-        {{ model.f10empnumber}}
-        <br>
+        <!-- <h3 class="mb-3">Form 2 details</h3> -->
+        <p *ngIf="!model.f2entityno.valid"><strong>Entity number:</strong> {{ model.f2entityno }}</p>
+        <p *ngIf="!model.f2details.valid"><strong>Details:</strong> {{ model.f2details }}</p>
+        <p *ngIf="!model.f2date.valid"><strong>Date:</strong> {{ model.f2date }}</p>
+        <p *ngIf="!model.f2officerfname.valid"><strong>Name of Compliance Officer / Manager first name:</strong> {{ model.f2officerfname }}</p>
+        <p *ngIf="!model.f2officerlname.valid"><strong>Name of Compliance Officer / Manager last name::</strong> {{ model.f2officerlname }}</p>
+        <p *ngIf="!model.f2manager.valid"><strong>Specific Qualification of compliance manager:</strong> {{ model.f2manager }}</p>
+        <p *ngIf="!model.f2uploadcopy.valid"><strong>Upload current and signed copy of the AMLCTF compliance program:</strong> {{ model.f2uploadcopy }}</p>
+        <p *ngIf="!model.f2reviewed.valid"><strong>Have you been audited/reviewed or asked to respond to specific concern bu AUSTRAC in the past two years?:</strong> {{ model.f2reviewed }}</p>
+        <p *ngIf="!model.f2uploadcorrespondence.valid"><strong>Frequency of internal review called for in your compliance program</strong> {{ model.f2uploadcorrespondence }}</p>
+        <p *ngIf="!model.f2uploadinternal.valid"><strong>Upload a copy of internal audit report</strong> {{ model.f2uploadinternal }}</p>
+        <p *ngIf="!model.f2uploadext.valid"><strong>Upload a copy of latest external audit report</strong> {{ model.f2uploadext }}</p>
     </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
