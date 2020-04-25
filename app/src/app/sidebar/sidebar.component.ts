@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,6 +13,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  public shouldShow = false;
 
 
 }
