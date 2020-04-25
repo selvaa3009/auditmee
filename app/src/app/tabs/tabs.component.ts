@@ -271,6 +271,7 @@ export class TabsComponent implements OnInit {
   onPopulate() {
     this._userdataService.sharedData = this.model;
     this.router.navigateByUrl('/generatepdf');
+    console.log(this.model);
   }
 
   onSubmit() {

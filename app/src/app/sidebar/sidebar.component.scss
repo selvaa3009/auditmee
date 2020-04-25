@@ -1,13 +1,32 @@
+img {
+    max-width: 100%;
+    display: block;
+}
+
 ul.sidebar {
     height: 100%;
 }
 
 #accordionSidebar {
     position: relative;
+    background: #0533bb;
 }
 
 .sidebartoggle {
     position: absolute;
     bottom: 20px;
     right: 20px;
+}
+
+.logo {
+    width: auto;
+    max-width: 200px;
+}
+
+.sidebar.toggled {
+    .sidebar-brand {
+        .sidebar-brand-text {
+            display: block;
+        }
+    }
 }
