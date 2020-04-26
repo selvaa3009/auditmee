@@ -1,98 +1,140 @@
 <div class="container-fluid">
     <h2>PDF page</h2>
 
+    <div class="content" id="content">
+        <h3>Scope:</h3>
+        <p>An External Review of Unimoni Pty Ltd was undertaken to inspect the level of compliance, Anti-Money Laundering and
+        Counter Terrorism Financing Program, Reporting Procedures and Record Keeping Obligations, as a reporting entity
+        registered with (AUSTRAC) Australian Transactions Report and Analysis Center under relevant sections of Anti-Money
+        Laundering and Counter Terrorism Financing Act 2006.</p>
+        
+        <p>The AUSTRAC CEO may require a reporting entity to appoint an external auditor under subsections 161(2) or 162(2).
+        However, this is an engagement mandated by the Compliance Program Part A, as External Auditors, our duty included
+        inspecting the compliance report, look at its implementation, identify the gaps between the requirement and practice,
+        suggest remedial actions and follow it up for rectification within a reasonable time. If required, a copy of this report
+        should be sent to the CEO of AUSTRAC.</p>
+        
+        <p>We follow the basis of Compliance Program Review Protocols set by Australian Compliance Institute, we have endeavored to
+        review this entity’s risk approach and adequacy and effectiveness of compliance program based on documents availed to us and chosen samples of random check and therefore cannot assure complete correctness of the probable gap between
+        principles and practices.</p>
+        
+        <h3>AML and CTF review Independence Statement</h3>
+        
+        <p>We confirm that, to the best of our knowledge and belief, we currently meet the independence requirements of the
+        Anti-Money Laundering and Counter Terrorism Financing Act 2006 in relation to the AML and CTF external review of the
+        compliance program, policies and procedures. In certain cases, employees of this entity may have attended public
+        trainings conducted by AML CTF Specialists and or presented by us.</p>
+        
+        <h3>Confidentiality Statement</h3>
+        
+        <p>In order to maintain the integrity and credibility of the risk assessment processes and to protect the parties involved,
+        it is understood that the assessors will not divulge any private and sensitive data to unauthorized persons any
+        information obtained during this risk assessment unless legally obligated to do so.</p>
+        
+        <h3>How to read this report</h3>
+        
+        <p>We have listed expected standard and detail of each component of AML CTF compliance from the legislative and regulatory
+        guidelines perspective, then observed the policies and procedures with the view of adequacy of coverage and efficiency
+        in practice with consideration to enterprise wide risk-based approach. Considered and appreciated the best practices
+        whilst listed out the gaps as recommendations. The grading is purely an effort to provide clarity to stake holders with
+        lesser understanding of the technicalities, read one as poor and 10 being the best practice.</p>
+    </div>
+
     <div>
         <!-- <h3 class="mb-3">Form 1 details</h3> -->
-        <p *ngIf="!model.entityName.valid"><strong>Entity name:</strong> {{ model.entityName }}</p>
-        <p *ngIf="!model.tradingName.valid"><strong>Trading name:</strong> {{ model.tradingName }}</p>
-        <p *ngIf="!model.regOffice.valid"><strong>Registered office:</strong> {{ model.regOffice }}</p>
-        <p *ngIf="!model.placebusiness.valid"><strong>Place of business:</strong> {{ model.placebusiness }}</p>
-        <p *ngIf="!model.abnNumber.valid"><strong>ABN number:</strong> {{ model.abnNumber }}</p>
-        <p *ngIf="!model.address1.valid"><strong>Street:</strong> {{ model.address1 }}</p>
-        <p *ngIf="!model.address2.valid"><strong>Area:</strong> {{ model.address2 }}</p>
-        <p *ngIf="!model.city.valid"><strong>City:</strong> {{ model.city }}</p>
-        <p *ngIf="!model.zip.valid"><strong>Zip</strong> {{ model.zip }}</p>
-        <p *ngIf="!model.entity.valid"><strong>Entity</strong> {{ model.entity }}</p>
-        <p *ngIf="!model.noofemployee.valid"><strong>Number of employee</strong> {{ model.noofemployee }}</p>
+        <p *ngIf="model.entityName"><strong>Entity name:</strong> {{ model.entityName }}</p>
+        <p *ngIf="model.tradingName"><strong>Trading name:</strong> {{ model.tradingName }}</p>
+        <p *ngIf="model.regOffice"><strong>Registered office:</strong> {{ model.regOffice }}</p>
+        <p *ngIf="model.placebusiness"><strong>Place of business:</strong> {{ model.placebusiness }}</p>
+        <p *ngIf="model.abnNumber"><strong>ABN number:</strong> {{ model.abnNumber }}</p>
+        <p *ngIf="model.address1"><strong>Street:</strong> {{ model.address1 }}</p>
+        <p *ngIf="model.address2"><strong>Area:</strong> {{ model.address2 }}</p>
+        <p *ngIf="model.city"><strong>City:</strong> {{ model.city }}</p>
+        <p *ngIf="model.zip"><strong>Zip</strong> {{ model.zip }}</p>
+        <p *ngIf="model.entity"><strong>Entity</strong> {{ model.entity }}</p>
+        <p *ngIf="model.noofemployee"><strong>Number of employee</strong> {{ model.noofemployee }}</p>
     </div>
 
     <div>
-        <!-- <h3 class="mb-3">Form 2 details</h3> -->
-        <p *ngIf="!model.f2entityno.valid"><strong>Entity number:</strong> {{ model.f2entityno }}</p>
-        <p *ngIf="!model.f2details.valid"><strong>Details:</strong> {{ model.f2details }}</p>
-        <p *ngIf="!model.f2date.valid"><strong>Date:</strong> {{ model.f2date }}</p>
-        <p *ngIf="!model.f2officerfname.valid"><strong>Name of Compliance Officer / Manager first name:</strong> {{ model.f2officerfname }}</p>
-        <p *ngIf="!model.f2officerlname.valid"><strong>Name of Compliance Officer / Manager last name::</strong> {{ model.f2officerlname }}</p>
-        <p *ngIf="!model.f2manager.valid"><strong>Specific Qualification of compliance manager:</strong> {{ model.f2manager }}</p>
-        <p *ngIf="!model.f2uploadcopy.valid"><strong>Upload current and signed copy of the AMLCTF compliance program:</strong> {{ model.f2uploadcopy }}</p>
-        <p *ngIf="!model.f2reviewed.valid"><strong>Have you been audited/reviewed or asked to respond to specific concern bu AUSTRAC in the past two years?:</strong> {{ model.f2reviewed }}</p>
-        <p *ngIf="!model.f2uploadcorrespondence.valid"><strong>Frequency of internal review called for in your compliance program</strong> {{ model.f2uploadcorrespondence }}</p>
-        <p *ngIf="!model.f2uploadinternal.valid"><strong>Upload a copy of internal audit report</strong> {{ model.f2uploadinternal }}</p>
-        <p *ngIf="!model.f2uploadext.valid"><strong>Upload a copy of latest external audit report</strong> {{ model.f2uploadext }}</p>
+        <!-- <h3 class="mb-3">Form 1 details</h3> -->
+        <p *ngIf="model.f2entityno"><strong>Entity number:</strong> {{ model.f2entityno }}</p>
+        <p *ngIf="model.f2details"><strong>Details:</strong> {{ model.f2details }}</p>
+        <p *ngIf="model.f2date"><strong>Date:</strong> {{ model.regOffice }}</p>
+        <p *ngIf="model.f2officerfname">
+            <strong>Name of Compliance Officer / Manager (first name):</strong> {{ model.f2officerfname }}</p>
+        <p *ngIf="model.f2officerlname">
+                <strong>Name of Compliance Officer / Manager (last name):</strong> {{ model.f2officerlname }}</p>
+        <p *ngIf="model.f2manager"><strong>Specific Qualification of compliance manager:</strong> {{ model.f2manager }}</p>
+        <p *ngIf="model.f2uploadcopy"><strong>Upload current and signed copy of the AMLCTF compliance program:</strong> {{ model.f2uploadcopy }}</p>
+        <p *ngIf="model.f2reviewed"><strong>Have you been audited/reviewed or asked to respond to specific concern bu AUSTRAC in the
+        past two years?:</strong> {{ model.f2reviewed }}</p>
+        <p *ngIf="model.f2uploadinternal"><strong>Upload a copy of internal audit report:</strong> {{ model.f2uploadinternal }}</p>
+        <p *ngIf="model.f2uploadext"><strong>Upload a copy of latest external audit report</strong> {{ model.f2uploadext }}</p>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
-    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
-    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
-    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
-    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
 
-    <button type="button" class="btn btn-danger ml-3">Export to PDF</button>
+    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga odio ipsum similique optio in, quod nulla iste
+    blanditiis laboriosam, quidem magnam rerum. Sapiente obcaecati praesentium, illo provident aperiam voluptatum atque.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eos et necessitatibus rerum omnis ab dolorem corrupti
+    ratione labore modi temporibus porro, suscipit, laudantium doloribus! Minima aspernatur magni quod laborum. Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Dolore, voluptas odio facilis repudiandae, sint ipsam dolores
+    doloremque officia et quis eveniet at voluptatem nostrum? Saepe neque exercitationem similique expedita animi.</p> -->
+
+    <button type="button" class="btn btn-danger ml-3" (click)="downloadPDF()">Download PDF</button>
     <button type="button" class="btn btn-success ml-3" 
                 (click)='submit()'>Submit</button>
 

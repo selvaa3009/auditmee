@@ -1,82 +1,82 @@
 export class DiagnosticsData {
   // formData : 
+  //1
+  entityName: string;
+  tradingName: string;
+  regOffice: string;
+  placebusiness: string;
+  abnNumber: number;
+  address1: string;
+  address2: string;
+  city: string;
+  zip: string;
+  entity: string;
+  noofemployee: number;
+  //2
+  f2entityno: number;
+  f2details: string;
+  f2date: string;
+  f2officerfname: string;
+  f2officerlname: string;
+  f2manager: string;
+  f2uploadcopy: string;
+  f2reviewed: boolean;
+  f2uploadcorrespondence: string;
+  f2quarterly: string;
+  f2halfly: string;
+  f2annually: string;
+  f2biannually: string;
+  f2uploadinternal: string;
+  f2extquarterly: string;
+  f2exthalfly: string;
+  f2extannually: string;
+  f2extbiannually: string;
+  f2uploadext: string;
+  // 3
+  f3CusTyp: boolean;
+  f3assessmentdetails: string;
+  f3productrisk: boolean;
+  f3productriskdetails: string;
+  f3jurisdictionrisk: boolean;
+  f3jurisdictionriskdetails: string;
+  f3deliveryrisk: boolean;
+  f3deliveryriskdetails: string;
+  f3partnerrisk: boolean;
+  f3partnerriskdetails: string;
+  f3manualscreen: boolean;
+  f3automatedscreen: boolean;
+  //4
+  f4kyc: boolean;
+  f4kycprocss: string;
+  f4iddoc: boolean;
+  f4autheticate: string;
+  f4monitoring: boolean;
+  f4monitoringdetails: string;
+  f4redflags: boolean;
+  f3redflagsdetails: string;
+  f4conducts: boolean;
+  f3conductdetails: string;
+  f4beneficial: boolean;
+  f4beneficialdetails: string;
+  f4records: boolean;
+  f4recordsdetails: string;
+  //5
+  f5matrix: number;
+  //6
+  f6trained: number;
+  f6uploadcopy: string;
+  f6quarterly: boolean;
+  f6halfly: boolean;
+  f6annually: boolean;
+  f6biannually: boolean;
+  7
+  f7threshold: boolean;
+  f7reports: boolean;
+  f7suspicious: boolean;
+  //8
+  f8testing: string;
+  // 9
+  f9comments: string;
   constructor(
-    //1
-    public entityName: string,
-    public tradingName: string,
-    public regOffice: string,
-    public placebusiness: string,
-    public abnNumber: number,
-    public address1: string,
-    public address2: string,
-    public city: string,
-    public zip: string,
-    public entity: string,
-    public noofemployee: number,
-    //2
-    public f2entityno: number,
-    public f2details: string,
-    public f2date: string,
-    public f2officerfname: string,
-    public f2officerlname: string,
-    public f2manager: string,
-    public f2uploadcopy: string,
-    public f2reviewed: boolean,
-    public f2uploadcorrespondence: string,
-    public f2quarterly: string,
-    public f2halfly: string,
-    public f2annually: string,
-    public f2biannually: string,
-    public f2uploadinternal: string,
-    public f2extquarterly: string,
-    public f2exthalfly: string,
-    public f2extannually: string,
-    public f2extbiannually: string,
-    public f2uploadext: string,
-    // 3
-    public f3CusTyp: boolean,
-    public f3assessmentdetails: string,
-    public f3productrisk: boolean,
-    public f3productriskdetails: string,
-    public f3jurisdictionrisk: boolean,
-    public f3jurisdictionriskdetails: string,
-    public f3deliveryrisk: boolean,
-    public f3deliveryriskdetails: string,
-    public f3partnerrisk: boolean,
-    public f3partnerriskdetails: string,
-    public f3manualscreen: boolean,
-    public f3automatedscreen: boolean,
-    //4
-    public f4kyc: boolean,
-    public f4kycprocss: string,
-    public f4iddoc: boolean,
-    public f4autheticate: string,
-    public f4monitoring: boolean,
-    public f4monitoringdetails: string,
-    public f4redflags: boolean,
-    public f3redflagsdetails: string,
-    public f4conducts: boolean,
-    public f3conductdetails: string,
-    public f4beneficial: boolean,
-    public f4beneficialdetails: string,
-    public f4records: boolean,
-    public f4recordsdetails: string,
-    //5
-    public f5matrix: number,
-    //6
-    public f6trained: number,
-    public f6uploadcopy: string,
-    public f6quarterly: boolean,
-    public f6halfly: boolean,
-    public f6annually: boolean,
-    public f6biannually: boolean,
-    // 7
-    public f7threshold: boolean,
-    public f7reports: boolean,
-    public f7suspicious: boolean,
-    //8
-    public f8testing: string,
-    // 9
-    public f9comments: string
   ) { }
 }

@@ -9,13 +9,16 @@ ul.sidebar {
 
 #accordionSidebar {
     position: relative;
-    background: #0533bb;
 }
 
 .sidebartoggle {
     position: absolute;
     bottom: 20px;
     right: 20px;
+}
+
+.sidebar-brand {
+    background: #fff;
 }
 
 .logo {

@@ -12,6 +12,8 @@ import { MainsectionComponent } from './mainsection/mainsection.component';
 import { FooterComponent } from './footer/footer.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
+import { CompletedComponent } from './completed/completed.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
     MainsectionComponent,
     FooterComponent,
     GeneratepdfComponent,
-    TabsComponent
+    TabsComponent,
+    CompletedComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
