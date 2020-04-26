@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <label for="address1">Address <sup>*</sup></label>
                                 <input type="text" [class.is-invalid]="address1.invalid && address1.touched" class="form-control"
-                                    id="address1" placeholder="1234 Main St" required [(ngModel)]="model.address1" name="address1"
+                                    id="address1" required [(ngModel)]="model.address1" name="address1"
                                     #address1="ngModel">
                                 <small *ngIf="address1.invalid && address1.touched" class="text-danger">Street is required</small>
                             </div>
@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label for="address2">Address 2</label>
                                 <input type="text" [class.is-invalid]="address2.invalid && address2.touched" class="form-control"
-                                    id="address2" placeholder="Apartment, studio, or floor" required [(ngModel)]="model.address2"
+                                    id="address2" required [(ngModel)]="model.address2"
                                     name="address2" #address2="ngModel">
                                 <small *ngIf="address2.invalid && address2.touched" class="text-danger">Area is required</small>
                             </div>
@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <label for="city">City</label>
                                 <input type="text" [class.is-invalid]="city.invalid && city.touched" class="form-control" id="city"
-                                    placeholder="New York City" required [(ngModel)]="model.city" name="city" #city="ngModel">
+                                    required [(ngModel)]="model.city" name="city" #city="ngModel">
                                 <small *ngIf="city.invalid && city.touched" class="text-danger">City is required</small>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             <div class="form-group">
                                 <label for="zip">Zip</label>
                                 <input type="text" [class.is-invalid]="zip.invalid && zip.touched" class="form-control" id="zip"
-                                    placeholder="11206-1117" required [(ngModel)]="model.zip" name="zip" #zip="ngModel">
+                                    required [(ngModel)]="model.zip" name="zip" #zip="ngModel">
                                 <small *ngIf="zip.invalid && zip.touched" class="text-danger">Zip is required</small>
                             </div>
                         </div>
