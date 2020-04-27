@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DiagnosticsData } from './../tabs/diagnostics.model';
 import { FormDataService } from './../form-data.service';
-import * as jsPDF from 'jspdf'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-generatepdf',
@@ -18,7 +18,7 @@ export class GeneratepdfComponent implements OnInit {
   ) {}
   model: any;
   content: any = 'demo';
-  doc: any = new jsPDF();
+  // doc: any = new jsPDF();
   ngOnInit(): void {
     this.model = this.dataService.sharedData;
   }
@@ -32,10 +32,23 @@ export class GeneratepdfComponent implements OnInit {
 
   formContent: string = this.model;
 
-  downloadPDF() {
-    console.log('downloading');
-    console.log(this.content);
-    this.doc.fromHTML(this.formContent, 15, 15);
-    this.doc.save('auditmee.pdf');
+  // downloadPDF() {
+  //   console.log('downloading');
+  //   console.log(this.content);
+  //   this.doc.fromHTML(this.formContent, 15, 15);
+  //   this.doc.save('auditmee.pdf');
+  // }
+
+  downloadPdf() {
+    const options = {
+      filename: 'auditmee.pdf',
+      image: { type: 'jpeg' },
+      html2canvas: {},
+      jsPDF: { orientation: 'landscape' },
+    };
+
+    const content: Element = document.getElementById('content');
+
+    html2pdf().from(content).set(options).save();
   }
 }
