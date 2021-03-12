@@ -23,7 +23,7 @@
     "bootstrap": "^4.4.1",
     "html2pdf.js": "^0.9.2",
     "jquery": "^3.5.0",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "ng-pdf-make": "^0.1.1",
     "pdfmake": "^0.1.65",
     "rxjs": "~6.5.4",
